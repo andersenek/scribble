@@ -6,10 +6,12 @@ class CommentsController < ApplicationController
   def show
     @user = current_user
     @comment = Comment.find(params[:id]) ## Finding my comment id
+    @show_user = @comment[:user_email]
     @post = Post.find(params[:post_id]) ## Finding my post id
   end
 
   def new ## this needs to render the post id (from the route) and that a comment is going to be new
+    @user = current_user
     @post = Post.find(params[:post_id]) ##
     @comment = Comment.new
   end
@@ -44,6 +46,6 @@ class CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:subject, :comment, :post_id, :user_id)
+    params.require(:comment).permit(:subject, :comment, :post_id, :user_id, :user_email)
   end
 end

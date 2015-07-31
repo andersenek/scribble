@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def show
     @user = current_user
     @post = Post.find(params[:id]) ## finding the post id
-    @comments = Comment.all
+    @comments = Comment.where(:post_id => @post)
     @comment = Comment.new ## Finding my comment id
   end
 

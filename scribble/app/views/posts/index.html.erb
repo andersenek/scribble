@@ -7,8 +7,8 @@
 
     <%= link_to image_tag(post.photo_url, class: "post-photo"), post_path(post) %>
     <p><%= post.content %></p>
-    <div class="post-edit-delete">
-      <a href="/posts/<%= post.id %>/edit">Edit</a>
+    <div class="read-more">
+      <%= link_to "Read Post", post_path(post) %>
     </div>
   </div>
 <% end %>

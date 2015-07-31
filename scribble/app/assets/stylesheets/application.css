@@ -44,6 +44,11 @@ body {
   text-transform: uppercase;
   letter-spacing: .5px;
   color: #777;
+  font-weight: 700;
+}
+
+.nav a:hover {
+    color: #A4A4A4;
 }
 
 .container {
@@ -56,6 +61,7 @@ body {
   display: inline-block;
   width: 70%;
   padding-top: 50px;
+  margin-left: 20px;
 }
 
 .sidebar {
@@ -71,6 +77,12 @@ body {
   border-bottom: 1px #7a7c7e solid;
   margin-bottom: 1em;
   padding-bottom: 1em;
+}
+
+.custom-devise {
+  font-size: .8em;
+  background: #DFDFDF;
+  padding: 50px;
 }
 
 h1 {
@@ -89,7 +101,6 @@ h2 {
 h3 {
   font-family: 'Lato', sans-serif;
   text-transform: uppercase;
-  margin-top: 0;
 }
 
 .new-post {
@@ -122,6 +133,7 @@ h3 {
 
 .post-header {
   margin-bottom: 1em;
+  font-weight: 700;
   text-transform: uppercase;
   text-align: center;
   font-size: 1.25em;
@@ -130,60 +142,43 @@ h3 {
 
 .post-header > span {
   display: block;
-}
-
-.post-header span:nth-child(2) {
-  font-size: 0.7em;
+  line-height: 1.25em;
 }
 
 .post-header a, .container a {
-  color: #BBB;
+  color: #777;;
   text-decoration: none;
 }
-
- .post-posted-by {
-   font-weight: 100;
-   color: black;
- }
-
- .post-photo {
-   width: 100%;
- }
-
- .post-edit-delete {
-   margin-bottom: 1em;
- }
-
- .post-edit-delete a {
-   float: left;
-   display: inline-block;
-   border-radius: 5px;
-   padding: 0 6px;
-   text-decoration: none;
-   text-align: center;
-   font-size: 0.8em;
-   line-height: 20px;
-   color: white;
-   background-color: #777;
- }
-
-.post-edit-delete button {
-  float: right;
-  display: inline-block;
-  border: none;
-  border-radius: 5px;
-  padding: 0 6px;
-  text-decoration: none;
-  text-align: center;
-  font-size: 2em;
-  line-height: 20px;
-  color: white;
-  background-color: #777;
- }
 
 .post-header p {
   font-size: .7em;
   margin: 5px;
+  color: #BBB;
+}
+
+.post-posted-by {
+  font-weight: 100;
+  color: black;
+}
+
+.post-photo {
+  width: 100%;
+}
+
+.read-more {
+  margin-bottom: 1em;
+}
+
+.read-more a {
+  float: left;
+  display: inline-block;
+  padding: 5px 10px;
+  text-decoration: none;
+  text-align: center;
+  font-size: 0.8em;
+  line-height: 20px;
+  color: white;
+  background-color: #777;
 }
 
 .comment p {
@@ -192,10 +187,12 @@ h3 {
 
 .icon-photo {
   width: 25px;
+  margin-bottom: -4px;
 }
 
 .icon-edit {
   width: 30px;
+  margin-bottom: -7px;
 }
 
 .icon-logo {
@@ -206,17 +203,13 @@ h3 {
   opacity: .7;
 }
 
-.icon-photo, .icon-edit {
-  margin-bottom: -4px;
-}
-
 .comment {
   margin: 10px auto;
   background: #F5F5F5;
   padding: 10px;
 }
 
- input {
+input {
   display: block;
   margin: 5px 0 20px 0;
   padding: 9px;
@@ -233,3 +226,16 @@ input[type=submit] {
   font-size: 14px;
   color: #FFFFFF;
  }
+
+.site-info {
+  display: inline-block;
+  width: 100%;
+  padding: 20px 0px 50px 0px;
+  text-align: center;
+  font-size: .8em;
+}
+
+.site-info p {
+  display: inline-block;
+  margin: 5px;
+}

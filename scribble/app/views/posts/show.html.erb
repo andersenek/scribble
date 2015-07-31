@@ -1,6 +1,7 @@
 <div class="post">
   <div class="post-header">
-  <%= @post.title %> <%= link_to image_tag("pencil.png", class: "icon-edit"), edit_post_path %>
+  <span><%= @post.title %> <%= link_to image_tag("pencil.png", class: "icon-edit"), edit_post_path %></span>
+  <p><%= @post.created_at.strftime("%d %b %y") %></p>
   </div>
 
   <%= image_tag @post.photo_url, class: "post-photo" %>
@@ -11,7 +12,8 @@
 
   <% @comments.each do |comment| %>
     <div class = "comment">
-    <p><%= link_to "#{comment.subject}", post_comment_path(@post, comment) %> - Added: <%= comment.created_at.strftime("%d %b %y") %></p>
+    <h5><%= link_to "\"#{comment.subject}\"", post_comment_path(@post, comment) %></h5>
+    <p>Added: <%= comment.created_at.strftime("%b %d %y") %> by: <%= comment.user_email %></p>
     <p><%= comment.comment %></p>
     </div>
   <% end %>

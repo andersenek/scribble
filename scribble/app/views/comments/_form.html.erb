@@ -7,5 +7,7 @@
 
   <%= f.hidden_field :user_id, :value => @user.id %>
 
-  <%= f.submit "Create" %>
+  <%= f.hidden_field :user_email, :value => current_user.email %>
+
+  <%= f.submit "Submit" %>
 <% end %>
