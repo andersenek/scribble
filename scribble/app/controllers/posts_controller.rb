@@ -5,8 +5,9 @@ class PostsController < ApplicationController
 
   def show
     @user = current_user
-    @post = Post.find(params[:id])
+    @post = Post.find(params[:id]) ## finding the post id
     @comments = Comment.all
+    @comment = Comment.new ## Finding my comment id
   end
 
   def new

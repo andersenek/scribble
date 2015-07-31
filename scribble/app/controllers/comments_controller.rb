@@ -4,45 +4,42 @@ class CommentsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @comment = Comment.find(params[:id])
+    @user = current_user
+    @comment = Comment.find(params[:id]) ## Finding my comment id
+    @post = Post.find(params[:post_id]) ## Finding my post id
   end
 
-  def new
-    @user = current_user
-    # @post = Post.find(params[:id])
+  def new ## this needs to render the post id (from the route) and that a comment is going to be new
+    @post = Post.find(params[:post_id]) ##
     @comment = Comment.new
   end
 
   def create
-    @user = User.find(params[:user_id])
-    # @post = Post.find(params[:id])
-    @comment = Comment.create!(comment_params)
-    redirect_to user_comment_path(@user, @comment)
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.create!(comment_params)
+    redirect_to post_path(@post)
   end
 
-  def show
-    @user = User.find(params[:user_id])
+  def edit ### this is going to need the post id and the comment id, (the form should be pre filled in)
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
-  end
-
-  def edit
-    @user = User.find(params[:user_id])
-    @comment = Comment.find(params[:id])
+    @user = current_user
   end
 
   def update
-    @user = User.find(params[:user_id])
+    @post = Post.find(params[:post_id])
+    @user = current_user
     @comment = Comment.find(params[:id])
     @comment.update(comment_params)
-    @post = Post.find(params[:id])
-    redirect_to post_comment_path(@post)
+
+    redirect_to post_comment_path(@post, @comment)
   end
 
   def destroy
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to posts_path
+    redirect_to post_path(@post)
   end
 
   private

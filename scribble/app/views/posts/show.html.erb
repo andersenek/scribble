@@ -1,22 +1,21 @@
 <div class="post">
   <div class="post-header">
-  <%= @post.title %> <%= link_to "(edit)", edit_post_path %></h3>
+  <%= @post.title %> <%= link_to image_tag("pencil.png", class: "icon-edit"), edit_post_path %>
   </div>
 
   <%= image_tag @post.photo_url, class: "post-photo" %>
 
   <p><%= @post.content %></p>
 
+  <h3>Comments <%= link_to image_tag("plus.png", class: "icon-photo"), new_post_comment_path(@post) %></h3>
 
-  <h3>Comments <%= link_to "(+)", new_user_comment_path(@post) %></h3>
-  <ul>
-    <% @comments.each do |comment| %>
-      <li>
-        <%= link_to "#{comment.subject} (#{comment.comment})", user_comment_path(@user, comment) %>
-      </li>
+  <% @comments.each do |comment| %>
+    <div class = "comment">
+    <p><%= link_to "#{comment.subject}", post_comment_path(@post, comment) %> - Added: <%= comment.created_at.strftime("%d %b %y") %></p>
+    <p><%= comment.comment %></p>
+    </div>
+  <% end %>
 
-    <% end %>
-  </ul>
-
+  <h3>Leave a comment:</h3>
   <%= render partial: "comments/form" %>
 </div>
