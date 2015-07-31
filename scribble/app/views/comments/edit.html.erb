@@ -1,3 +1,4 @@
+<div class="custom-layout">
 <h3>Edit Comment</h3>
 
 <%= render partial: "form" %>
@@ -5,3 +6,4 @@
 <%= form_for [@post, @comment], method: :delete do |f| %>
   <%= f.submit "Delete Comment!", class: "button-delete" %>
 <% end %>
+</div>

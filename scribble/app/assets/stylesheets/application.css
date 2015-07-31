@@ -79,7 +79,7 @@ body {
   padding-bottom: 1em;
 }
 
-.custom-devise {
+.custom-layout {
   font-size: .8em;
   background: #DFDFDF;
   padding: 50px;
@@ -181,6 +181,12 @@ h3 {
   background-color: #777;
 }
 
+.comment {
+  margin: 10px auto;
+  background: #F5F5F5;
+  padding: 5px 30px;
+}
+
 .comment p {
   line-height: 0;
 }
@@ -200,13 +206,10 @@ h3 {
   position: relative;
   left: -40px;
   top: -10px;
-  opacity: .7;
 }
 
-.comment {
-  margin: 10px auto;
-  background: #F5F5F5;
-  padding: 10px;
+.icon-photo, .icon-edit, .icon-logo {
+  opacity: .7;
 }
 
 input {
