@@ -6,6 +6,8 @@ class PostsController < ApplicationController
   def show
     @user = current_user
     @post = Post.find(params[:id]) ## finding the post id
+    # here you can just say:
+    # @comments = @post.comments
     @comments = Comment.where(:post_id => @post)
     @comment = Comment.new ## Finding my comment id
   end
@@ -16,6 +18,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create!(post_params)
+    # should probably make sure the post is associated with the current user:
+    # @post.user = current_user
+    # @post.save
     redirect_to post_path(@post) # Knows to get the id of this post
   end
 

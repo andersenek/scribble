@@ -18,7 +18,13 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
+
+    # rather than setting user_id from the form (where the user can change it
+    #at will), you should do something like:
     @comment = @post.comments.create!(comment_params)
+    # @comment.user = current_user
+    # @comment.save
+    # this is more secure!
     redirect_to post_path(@post)
   end
 
